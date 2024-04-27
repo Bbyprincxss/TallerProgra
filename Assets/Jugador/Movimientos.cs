@@ -43,21 +43,26 @@ public class Perro : MonoBehaviour
     private void Update()
     {
         movimientoHoizontal = Input.GetAxisRaw("Horizontal") * velocidadDeMovimiento;
-        //si se presiona el boton de salto
-        if (Input.GetButtonDown("Jump"))
-        {
-            //saltara
-            salto = true;
-        }
+        Saltar();
+
     }
 
     private void FixedUpdate()
     {
-        enSuelo = Physics2D.OverlapBox(controladorSuelo.position, dimensionesCaja, 0f, queEsSuelo);
+        //enSuelo = Physics2D.OverlapBox(controladorSuelo.position, dimensionesCaja, 0f, queEsSuelo);
         Mover(movimientoHoizontal * Time.fixedDeltaTime, salto);
 
         salto = false;
 
+    }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("suelo"))
+        {
+            enSuelo = true;
+            salto = false;
+        }
     }
 
     private void Mover(float mover, bool saltar)
@@ -75,10 +80,15 @@ public class Perro : MonoBehaviour
             Girar();
         }
 
-        //si esta en el suelo y se presione saltar, salte
-        if(enSuelo && saltar){
+    }
+
+    public void Saltar()
+    {
+        if(Input.GetKeyDown(KeyCode.Space) && enSuelo)
+        {
+            rb2d.AddForce(new Vector2(0f,fuerzaDeSalto),ForceMode2D.Impulse);
             enSuelo = false;
-            rb2d.AddForce(new Vector2(0f, fuerzaDeSalto));
+            salto = true;
         }
     }
 
@@ -94,8 +104,6 @@ public class Perro : MonoBehaviour
     private void OnDrawGizmos() {
         Gizmos.color = Color.green;
         Gizmos.DrawCube(controladorSuelo.position, dimensionesCaja);
-
-        print("e");
     }
 
 
