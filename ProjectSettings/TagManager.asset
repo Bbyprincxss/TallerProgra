@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - suelo
+  - Jugador
   layers:
   - Default
   - TransparentFX
