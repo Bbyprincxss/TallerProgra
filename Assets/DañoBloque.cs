@@ -34,7 +34,7 @@ public class DañoBloque : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Verificar si el bloque ha tocado el suelo
-        if (collision.gameObject.CompareTag("Suelo"))
+        if (collision.gameObject.CompareTag("suelo"))
         {
             tocandoSuelo = true;
             // Después de un tiempo, hacer desaparecer el bloque

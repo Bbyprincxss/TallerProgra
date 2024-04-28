@@ -7,6 +7,12 @@ public class Perro : MonoBehaviour
 {
     private Rigidbody2D rb2d;
 
+    //aa
+    public bool sePuedeMover = true;
+    [SerializeField] private Vector2 velocidadRebote;
+
+    //aa
+
     [Header("Movimiento")]
 
     public float fuerzaGolpe;
@@ -57,9 +63,13 @@ public class Perro : MonoBehaviour
     {
         
         animator.SetBool("enSuelo", enSuelo);
-        
 
-        Mover(movimientoHoizontal * Time.fixedDeltaTime, salto);
+        //aaaaaaaaaaaaa
+        if (sePuedeMover) 
+        {
+            Mover(movimientoHoizontal * Time.fixedDeltaTime, salto);
+        }
+
         salto = false;
 
     }
@@ -110,8 +120,11 @@ public class Perro : MonoBehaviour
 
     }
 
-    
-
+    //aaaaaaaaaa
+    public void Rebote(Vector2 puntoGolpe) 
+    {
+        rb2d.velocity = new Vector2(-velocidadRebote.x * puntoGolpe.x, velocidadRebote.y);
+    }
 
 
 }
