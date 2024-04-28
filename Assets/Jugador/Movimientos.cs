@@ -9,6 +9,8 @@ public class Perro : MonoBehaviour
 
     [Header("Movimiento")]
 
+    public float fuerzaGolpe;
+
     private float movimientoHoizontal = 0f;
 
     [SerializeField] private float velocidadDeMovimiento;
@@ -48,6 +50,8 @@ public class Perro : MonoBehaviour
         movimientoHoizontal = Input.GetAxisRaw("Horizontal") * velocidadDeMovimiento;
         Saltar();
         animator.SetFloat("Horizontal", Mathf.Abs(movimientoHoizontal));
+        animator.SetFloat("VelocidadY", rb2d.velocity.y);
+
 
     }
 
@@ -111,7 +115,21 @@ public class Perro : MonoBehaviour
         Gizmos.DrawCube(controladorSuelo.position, dimensionesCaja);
     }
 
+    public void aplicarGolpe()
+    {
+        Vector2 direccionGolpe;
 
+        if (rb2d.velocity.x > 0) 
+        {
+            direccionGolpe = new Vector2(-1, 1);
+        }
+        else
+        {
+            direccionGolpe = new Vector2(1, 1);
+        }
+
+        rb2d.AddForce(direccionGolpe * fuerzaGolpe);
+    }
 
 
 }
