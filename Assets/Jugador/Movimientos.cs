@@ -57,8 +57,9 @@ public class Perro : MonoBehaviour
     {
         
         animator.SetBool("enSuelo", enSuelo);
-        Mover(movimientoHoizontal * Time.fixedDeltaTime, salto);
+        
 
+        Mover(movimientoHoizontal * Time.fixedDeltaTime, salto);
         salto = false;
 
     }
@@ -71,6 +72,7 @@ public class Perro : MonoBehaviour
             salto = false;
         }
     }
+    
 
     private void Mover(float mover, bool saltar)
     {

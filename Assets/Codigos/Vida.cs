@@ -9,17 +9,19 @@ public class Vida : MonoBehaviour
 
     [SerializeField] private int maximaVida;
 
+
     // Start is called before the first frame update
     void Start()
     {
         vida = maximaVida;
-
 
     }
 
     public void RecibirDanio(int danio) 
     {
         vida -= danio;
+
+
         if (vida <= 0) 
         {
             Destroy(gameObject);
@@ -36,6 +38,7 @@ public class Vida : MonoBehaviour
             vida += curacion; 
         }
     }
+
 
 
 }
