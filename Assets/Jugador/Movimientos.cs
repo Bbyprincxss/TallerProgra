@@ -25,11 +25,9 @@ public class Perro : MonoBehaviour
 
     [SerializeField] private float fuerzaDeSalto;
 
-    [SerializeField] private LayerMask queEsSuelo; //identificar superficie
-
     [SerializeField] private Transform controladorSuelo; 
 
-    [SerializeField] private Vector3 dimensionesCaja; //dimension si se esta en el suelo o no
+
 
     [SerializeField] private bool enSuelo;
 
@@ -57,7 +55,7 @@ public class Perro : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //enSuelo = Physics2D.OverlapBox(controladorSuelo.position, dimensionesCaja, 0f, queEsSuelo);
+        
         animator.SetBool("enSuelo", enSuelo);
         Mover(movimientoHoizontal * Time.fixedDeltaTime, salto);
 
@@ -110,10 +108,7 @@ public class Perro : MonoBehaviour
 
     }
 
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.green;
-        Gizmos.DrawCube(controladorSuelo.position, dimensionesCaja);
-    }
+    
 
 
 

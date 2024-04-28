@@ -5,25 +5,20 @@ using UnityEngine;
 public class Moneda_Recoleccion : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] private float cantidadPuntos;
+    [SerializeField] private contadorMonedas contador;
+    [SerializeField] private GameObject efecto;
     
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnTriggerEnter2D(Collider2D collision) 
     {
         if (collision.CompareTag("Jugador")) 
         {
+            contador.SumarPuntos(cantidadPuntos);
             
             Destroy(gameObject);
         }
     }
+
+
 }
