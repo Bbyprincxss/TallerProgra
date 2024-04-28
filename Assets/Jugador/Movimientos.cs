@@ -33,23 +33,28 @@ public class Perro : MonoBehaviour
 
     private bool salto = false;
 
+    [Header("Animacion")]
+    private Animator animator;
 
 
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         movimientoHoizontal = Input.GetAxisRaw("Horizontal") * velocidadDeMovimiento;
         Saltar();
+        animator.SetFloat("Horizontal", Mathf.Abs(movimientoHoizontal));
 
     }
 
     private void FixedUpdate()
     {
         //enSuelo = Physics2D.OverlapBox(controladorSuelo.position, dimensionesCaja, 0f, queEsSuelo);
+        animator.SetBool("enSuelo", enSuelo);
         Mover(movimientoHoizontal * Time.fixedDeltaTime, salto);
 
         salto = false;
