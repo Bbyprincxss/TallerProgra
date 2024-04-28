@@ -5,6 +5,8 @@ using UnityEngine;
 public class Moneda_Recoleccion : MonoBehaviour
 {
     // Start is called before the first frame update
+    
+
     void Start()
     {
         
@@ -20,6 +22,7 @@ public class Moneda_Recoleccion : MonoBehaviour
     {
         if (collision.CompareTag("Jugador")) 
         {
+            
             Destroy(gameObject);
         }
     }

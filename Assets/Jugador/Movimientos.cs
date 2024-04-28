@@ -115,21 +115,6 @@ public class Perro : MonoBehaviour
         Gizmos.DrawCube(controladorSuelo.position, dimensionesCaja);
     }
 
-    public void aplicarGolpe()
-    {
-        Vector2 direccionGolpe;
-
-        if (rb2d.velocity.x > 0) 
-        {
-            direccionGolpe = new Vector2(-1, 1);
-        }
-        else
-        {
-            direccionGolpe = new Vector2(1, 1);
-        }
-
-        rb2d.AddForce(direccionGolpe * fuerzaGolpe);
-    }
 
 
 }

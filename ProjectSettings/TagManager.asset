@@ -6,6 +6,7 @@ TagManager:
   tags:
   - suelo
   - Jugador
+  - coin
   layers:
   - Default
   - TransparentFX
