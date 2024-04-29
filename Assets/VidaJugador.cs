@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class VidaJugador : MonoBehaviour
 {
@@ -25,10 +26,19 @@ public class VidaJugador : MonoBehaviour
     public void TomarDanio(float danio, Vector2 posicion) 
     {
         vida -= danio;
-        animator.SetTrigger("Golpe");
-        AudioSource.PlayClipAtPoint(sonidoHerida, transform.position);
-        StartCoroutine(PerderControl());
-        movimientoJugador.Rebote(posicion);
+        if (vida > 0) 
+        {
+            animator.SetTrigger("Golpe");
+            AudioSource.PlayClipAtPoint(sonidoHerida, transform.position);
+            StartCoroutine(PerderControl());
+            movimientoJugador.Rebote(posicion);
+        }
+        else
+        {
+            animator.SetTrigger("Muerte");
+            Application.Quit();
+        }
+        
     }
 
     private IEnumerator PerderControl() 
