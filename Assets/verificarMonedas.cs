@@ -6,6 +6,7 @@ public class verificarMonedas : MonoBehaviour
 {
     [SerializeField] private AudioClip sonidoCofreWin;
     [SerializeField] private AudioClip sonidoCofre;
+    private Animator animator;
 
     // Cantidad de monedas necesarias para abrir el cofre
     public int coinsRequired = 14; 
