@@ -8,6 +8,7 @@ public class VidaJugador : MonoBehaviour
     private Perro movimientoJugador;
     [SerializeField] private float tiempoPerdidaControl;
     private Animator animator;
+    public AudioClip sonidoHerida;
 
     private void Start() 
     {
@@ -16,15 +17,16 @@ public class VidaJugador : MonoBehaviour
     }
 
 
-    public void TomarDaño(float daño) 
+    public void TomarDanio(float danio) 
     {
-        vida += daño;
+        vida += danio;
     }
 
-    public void TomarDaño(float daño, Vector2 posicion) 
+    public void TomarDanio(float danio, Vector2 posicion) 
     {
-        vida -= daño;
+        vida -= danio;
         animator.SetTrigger("Golpe");
+        AudioSource.PlayClipAtPoint(sonidoHerida, transform.position);
         StartCoroutine(PerderControl());
         movimientoJugador.Rebote(posicion);
     }

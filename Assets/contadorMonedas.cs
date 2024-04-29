@@ -5,24 +5,25 @@ using TMPro;
 
 public class contadorMonedas : MonoBehaviour
 {
-    private float puntos;
+    public static float puntos;
     private TextMeshProUGUI textMesh;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         textMesh = GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         textMesh.text = puntos.ToString("0");
     }
 
+    //metodo que suma la cantidad de moendas
     public void SumarPuntos(float puntosEntrada) 
     {
         puntos += puntosEntrada;
     }
+    
 }

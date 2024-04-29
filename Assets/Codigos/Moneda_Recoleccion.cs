@@ -8,6 +8,7 @@ public class Moneda_Recoleccion : MonoBehaviour
     [SerializeField] private float cantidadPuntos;
     [SerializeField] private contadorMonedas contador;
     [SerializeField] private GameObject efecto;
+    public AudioClip sonidoMoneda;
     
 
     void OnTriggerEnter2D(Collider2D collision) 
@@ -15,7 +16,7 @@ public class Moneda_Recoleccion : MonoBehaviour
         if (collision.CompareTag("Jugador")) 
         {
             contador.SumarPuntos(cantidadPuntos);
-            
+            AudioSource.PlayClipAtPoint(sonidoMoneda, transform.position);
             Destroy(gameObject);
         }
     }

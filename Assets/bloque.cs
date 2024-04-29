@@ -8,7 +8,7 @@ public class bloque : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Jugador")) 
         {
-            other.gameObject.GetComponent<VidaJugador>().TomarDaño(34, other.GetContact(0).normal);
+            other.gameObject.GetComponent<VidaJugador>().TomarDanio(34, other.GetContact(0).normal);
         }
     }
 }
