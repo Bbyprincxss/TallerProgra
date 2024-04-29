@@ -6443,7 +6443,7 @@ GameObject:
   - component: {fileID: 634994132}
   - component: {fileID: 634994131}
   - component: {fileID: 634994130}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BloqueConGravedad (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12071,7 +12071,7 @@ GameObject:
   - component: {fileID: 1549105238}
   - component: {fileID: 1549105239}
   - component: {fileID: 1549105240}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Perro
   m_TagString: Jugador
   m_Icon: {fileID: 0}
@@ -13605,7 +13605,7 @@ Transform:
   m_GameObject: {fileID: 1761038503}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 83.18, y: 1.06, z: 0}
+  m_LocalPosition: {x: 13.21, y: 3.57, z: 0}
   m_LocalScale: {x: 1.9126987, y: 2.3711884, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
