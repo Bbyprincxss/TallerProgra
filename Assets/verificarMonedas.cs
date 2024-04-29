@@ -15,7 +15,9 @@ public class verificarMonedas : MonoBehaviour
              if (contadorMonedas.puntos == coinsRequired)
         {
             
-            Debug.Log("¡Cofre abierto!");
+            print("¡Cofre abierto!");
+            print("¡TERMINO EL MEJRO JUEGO DEL MUNDO!");
+            
             
         }
         else
